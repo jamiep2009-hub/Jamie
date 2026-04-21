@@ -1,0 +1,14 @@
+{
+  "name": "ai-sensei",
+  "version": "1.0.0",
+  "description": "AI Sensei — ESKA Norfolk Shotokan karate training assistant (Claude-powered).",
+  "private": true,
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
