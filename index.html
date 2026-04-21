@@ -1,0 +1,167 @@
+index.html <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Sensei — ESKA Norfolk</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <span class="brand-mark">空</span>
+      <div class="brand-text">
+        <h1>AI Sensei</h1>
+        <p>ESKA Norfolk — Shotokan Karate</p>
+      </div>
+    </div>
+  </header>
+
+  <nav class="tabs" role="tablist">
+    <button class="tab-btn active" data-tab="home" role="tab">Home</button>
+    <button class="tab-btn" data-tab="journey" role="tab">Journey</button>
+    <button class="tab-btn" data-tab="kata" role="tab">Kata</button>
+    <button class="tab-btn" data-tab="conditioning" role="tab">Conditioning</button>
+    <button class="tab-btn" data-tab="history" role="tab">History</button>
+    <button class="tab-btn" data-tab="profile" role="tab">Profile</button>
+  </nav>
+
+  <main>
+    <!-- HOME / CHAT -->
+    <section id="home" class="tab-panel active" role="tabpanel">
+      <div class="chat-wrap">
+        <div id="chat-log" class="chat-log" aria-live="polite">
+          <div class="msg assistant">
+            <div class="bubble">
+              <p><strong>Osu.</strong> I am your AI Sensei.</p>
+              <p>Tell me your grade and what you want to work on. Technique, kata, conditioning, or mindset.</p>
+            </div>
+          </div>
+        </div>
+        <form id="chat-form" class="chat-form" autocomplete="off">
+          <textarea id="chat-input" rows="2" placeholder="Ask your Sensei…" required></textarea>
+          <div class="chat-actions">
+            <button type="button" id="clear-chat" class="btn ghost">Clear</button>
+            <button type="submit" id="send-btn" class="btn primary">Send</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- JOURNEY -->
+    <section id="journey" class="tab-panel" role="tabpanel">
+      <h2>My Journey</h2>
+      <p class="muted">Track your focus, weaknesses, goals, and notes.</p>
+
+      <form id="journey-form" class="form-card">
+        <label>
+          <span>Current focus area</span>
+          <input type="text" id="j-focus" placeholder="e.g. Zenkutsu dachi stability" />
+        </label>
+        <label>
+          <span>Weakness I'm working on</span>
+          <input type="text" id="j-weakness" placeholder="e.g. Slow hip rotation on gyaku zuki" />
+        </label>
+        <label>
+          <span>Next training goal</span>
+          <input type="text" id="j-goal" placeholder="e.g. Grade for 5th kyu in June" />
+        </label>
+        <label>
+          <span>Notes from last session</span>
+          <textarea id="j-notes" rows="4" placeholder="Write what you learned…"></textarea>
+        </label>
+        <div class="row-end">
+          <button type="submit" class="btn primary">Save</button>
+        </div>
+        <p id="journey-saved" class="saved-msg"></p>
+      </form>
+
+      <div class="form-card">
+        <h3>Session log</h3>
+        <form id="log-form" class="inline-form">
+          <input type="text" id="log-entry" placeholder="Add a quick note (e.g. 30 min kihon, hip drive better)" required />
+          <button type="submit" class="btn primary">Add</button>
+        </form>
+        <ul id="log-list" class="log-list"></ul>
+      </div>
+    </section>
+
+    <!-- KATA -->
+    <section id="kata" class="tab-panel" role="tabpanel">
+      <h2>Kata Library</h2>
+      <input type="search" id="kata-search" class="search" placeholder="Search kata by name…" />
+      <div id="kata-list" class="kata-grid"></div>
+      <div id="kata-detail" class="kata-detail hidden"></div>
+    </section>
+
+    <!-- CONDITIONING -->
+    <section id="conditioning" class="tab-panel" role="tabpanel">
+      <h2>Conditioning</h2>
+      <p class="muted">Drills by focus. Reps and sets. Train with intent.</p>
+      <div id="conditioning-list" class="cond-grid"></div>
+    </section>
+
+    <!-- HISTORY -->
+    <section id="history" class="tab-panel" role="tabpanel">
+      <h2>Karate History</h2>
+      <div id="history-content" class="prose"></div>
+    </section>
+
+    <!-- PROFILE -->
+    <section id="profile" class="tab-panel" role="tabpanel">
+      <h2>Profile</h2>
+      <form id="profile-form" class="form-card">
+        <label>
+          <span>Name</span>
+          <input type="text" id="p-name" placeholder="Your name" />
+        </label>
+        <label>
+          <span>Grade</span>
+          <select id="p-grade">
+            <option value="">Select grade</option>
+            <option>9th Kyu (White)</option>
+            <option>8th Kyu (Red)</option>
+            <option>7th Kyu (Orange)</option>
+            <option>6th Kyu (Yellow)</option>
+            <option>5th Kyu (Green)</option>
+            <option>4th Kyu (Purple)</option>
+            <option>3rd Kyu (Brown)</option>
+            <option>2nd Kyu (Brown)</option>
+            <option>1st Kyu (Brown)</option>
+            <option>1st Dan (Shodan)</option>
+            <option>2nd Dan (Nidan)</option>
+            <option>3rd Dan (Sandan)</option>
+            <option>4th Dan (Yondan)</option>
+            <option>5th Dan (Godan)</option>
+          </select>
+        </label>
+        <label>
+          <span>Role</span>
+          <select id="p-role">
+            <option value="">Select role</option>
+            <option>Student</option>
+            <option>Instructor</option>
+            <option>Leader</option>
+          </select>
+        </label>
+        <label>
+          <span>Training preferences</span>
+          <textarea id="p-prefs" rows="3" placeholder="e.g. Focus on kata and stances, train 3x a week"></textarea>
+        </label>
+        <div class="row-end">
+          <button type="submit" class="btn primary">Save</button>
+        </div>
+        <p id="profile-saved" class="saved-msg"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>ESKA Norfolk · AI Sensei · Train with discipline</p>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/system-prompt.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
